@@ -6,10 +6,10 @@ def fill_divisors_set(num_str):
     return divisors_set
 
 
-def check_all_divisors(num_str, divisors_set):
+def all_divisors_valid(num_str, divisors_set):
     for divisor in divisors_set:
         candidate_block = num_str[:divisor]
-    repetition_count = (len(num_str)//divisor)
+        repetition_count = (len(num_str)//divisor)
         if num_str == candidate_block * repetition_count:
             return True
     return False
@@ -20,7 +20,7 @@ def process_number_range(start, stop):
     for number in range(start, stop + 1):
         num_str = str(number)
         divisors_set = fill_divisors_set(num_str)
-        if check_all_divisors(num_str, divisors_set):
+        if all_divisors_valid(num_str, divisors_set):
             invalid_ids.append(num_str)
     return invalid_ids
 
